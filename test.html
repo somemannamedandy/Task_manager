@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Refresh" content="2">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>task list</title>
+    <style>
+        #dateHelp{
+            top: 74px;
+
+            font-size: .6rem;
+
+            right: 42%;
+        }
+    </style>
+</head>
+<body>
+    <header><h2 class="text-dark text-capitalize text-center">Task manager</h2></header>
+    <main>
+        <div class="row d-flex justify-content-center">
+                <form class="form-inline">
+                        <div class="form-group mr-1">
+                         
+                          <input type="text" class="form-control form-control-sm rounded-0" id="taskTitleInput" aria-describedby="emailHelp" placeholder="Enter task title" required>
+                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <div class="form-group mr-1">
+                         
+                          <input type="text" class="form-control form-control-sm text-capitalize rounded-0" id="clientNameInput" placeholder="Enter Client Name" required>
+                        </div>
+
+                        <div class="form-group mr-1">
+                               
+                                <input type="text" class="form-control form-control-sm rounded-0" id="taskDescInput" placeholder="Enter Task Description" required>
+                              </div>
+
+                              <div class="form-group mr-1 postition-relative">
+                                   <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
+                                    <input type="text" class="form-control form-control-sm rounded-0" id="dateRequest" placeholder="Enter date requested*" onfocus="(this.type='date')">
+                                    <small id="dateHelp" class="form-text text-muted position-absolute">*default now</small>
+                                  </div>
+                            <div class="form-group mr-1">
+                                       <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
+                                    <input type="text" class="form-control form-control-sm rounded-0" id="dateDeadline" placeholder="Enter date deadline" onfocus="(this.type='date')" required>
+                            </div>
+                        
+                            <div class="form-group mr-1">
+                               
+                                    <select class="form-control form-control-sm rounded-0" id="Status"  required>
+                                        <option value="1" >Urgent</option>
+                                        <option value="2" selected>In Progress</option>
+                                        <option value="3" >On Hold</option>
+                                        <option value="4" >Finished</option>
+
+                                    </select>
+                                  </div>
+                        <button type="submit" class="btn btn-dark text-danger rounded-0 btn-sm">Submit</button>
+                      </form>
+                      
+        </div>
+        <hr>
+           
+    </main>
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+
+</script>
+</body>
+</html>
