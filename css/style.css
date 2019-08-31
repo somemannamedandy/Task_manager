@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Font;
+    src: url(../font/windows_command_prompt.ttf);
+}
+*{
+    font-family: Font;
+}
+
+html,body{
+    background-color: #000;}
+/*remove bootstrap focus blue*/
+input,textarea,select,option:focus{
+    outline:none!important;
+    box-shadow: none!important;
+    border-color: #fff!important;
+}
+input,textarea,select,option{
+    -webkit-box-shadow: inset 51px -51px 0px -50px rgba(0,0,0,0.75)!important;
+    -moz-box-shadow: inset 51px -51px 0px -50px rgba(0,0,0,0.75)!important;
+    box-shadow: inset 51px -51px 0px -50px rgba(0,0,0,0.75)!important;
+    border:1px solid #ffffff;
+    background-color: #000 !important;
+    color: #fff!important;
+}
+#errorMessage{
+    font-size: .6rem;
+    display:none;
+}
+#TaskList{
+    max-height: 320px;
+    overflow-y:scroll;
+}
+.scroll-color-colors {
+    scrollbar-color: #000 #fff;/* scrollbar-color: #19c0d0 #1b2838;*/
+
+}
+.scroll-width-thin {
+    scrollbar-width: thin;
+}
+.listnr{
+    width:30px;
+    background:none !important;
+}
+.abArea{
+    height: 30px!important;
+}

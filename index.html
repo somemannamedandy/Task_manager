@@ -4,179 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <!-- <meta http-equiv="Refresh" content="2">--><!--refresh page every 2 seconds-->
+    <!-- <meta http-equiv="Refresh" content="2">--><!--refresh page every 2 seconds-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>task list</title>
-    <style>
-        #errorMessage{ font-size: .6rem; display:none;}
-        .listnr{width:30px; background:none !important;}
-        .abArea{height: 30px!important;}
-    </style>
-</head>
-<body class="bg-light">
-    <header><h2 class="text-dark text-capitalize text-center">Task manager</h2></header>
-    <main class="container">
-        <div class="row d-flex justify-content-center">
-                <form class="form-inline">
-                        <div class="form-group mr-1">
-                          <input type="text" class="form-control form-control-sm rounded-0" id="taskTitleInput" placeholder="Enter task title" >
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group mr-1">
-                            <input type="text" class="form-control form-control-sm text-capitalize rounded-0" id="clientNameInput" placeholder="Enter Client Name" >
-                        </div>
-                        <div class="form-group mr-1">
-                            <textarea class="form-control form-control-sm rounded-0 abArea" id="taskDescInput" placeholder="Enter Task Description" ></textarea>
-                        </div>
-                        <div class="form-group mr-1 postition-relative">
-                                   <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
-                                 <input type="text" class="form-control form-control-sm rounded-0" id="dateRequest" placeholder="Enter date requested*" onfocus="(this.type='date')">
-                        </div>
-                        <div class="form-group mr-1">
-                                  <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
-                                  <input type="text" class="form-control form-control-sm rounded-0" id="dateDeadline" placeholder="Enter date deadline" onfocus="(this.type='date')" >
-                        </div>
-                        <div class="form-group mr-1">
-                            <select class="form-control form-control-sm rounded-0" id="status"  >
-                                  <option value="" selected disabled>Select a status</option>
-                                  <option value="1" >Urgent</option>
-                                  <option value="2" >In Progress</option>
-                                  <option value="3" >On Hold</option>
-                                  <option value="4" >Finished</option>
-                            </select>
-                        </div>
-                        <button type="button" id="addTask" class="btn btn-dark text-danger rounded-0 btn-sm">add Task</button>
-                    <div class="form-group mr-1">
-                    <p class="text-danger text-sm m-2" id="errorMessage"></p>
-                    </div>
-                      </form>
-                      
-        </div>
-        <hr>
-        <div class="row d-flex justify-content-center">
-            <h4 class="text-dark text-capitalize">current tasks</h4>
-           <div class="col-12" id="TaskList">
+    <link rel="stylesheet" href="css/style.css">
 
+    <title>task list</title>
+</head>
+<body>
+<header><h2 class="text-white text-capitalize text-center">Task manager</h2></header>
+
+<main class="container">
+    <div class="row d-flex justify-content-center">
+        <form class="form-inline">
+            <div class="form-group mr-1">
+                <input type="text" class="form-control form-control-sm rounded-0" id="taskTitleInput" placeholder="Enter task title" >
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
+            <div class="form-group mr-1">
+                <input type="text" class="form-control form-control-sm text-capitalize rounded-0" id="clientNameInput" placeholder="Enter Client Name" >
+            </div>
+            <div class="form-group mr-1">
+                <textarea class="form-control form-control-sm rounded-0 abArea" id="taskDescInput" placeholder="Enter Task Description" ></textarea>
+            </div>
+            <div class="form-group mr-1 postition-relative">
+                <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
+                <input type="text" class="form-control form-control-sm rounded-0" id="dateRequest" placeholder="Enter date requested" onfocus="(this.type='date')">
+            </div>
+            <div class="form-group mr-1">
+                <!--  <label for="taskDescInput" class="mx-1">Date requested</label> -->
+                <input type="text" class="form-control form-control-sm rounded-0" id="dateDeadline" placeholder="Enter date deadline" onfocus="(this.type='date')" >
+            </div>
+            <div class="form-group mr-1">
+                <select class="form-control form-control-sm rounded-0" id="status"  >
+                    <option value="" selected disabled>Select a status</option>
+                    <option value="1" >Urgent</option>
+                    <option value="2" >In Progress</option>
+                    <option value="3" >On Hold</option>
+                    <option value="4" >Finished</option>
+                </select>
+            </div>
+            <button type="button" id="addTask" class="btn btn-black text-white border rounded-0 btn-sm">add Task</button>
+            <div class="form-group mr-1">
+                <p class="text-danger text-sm m-2" id="errorMessage"></p>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="row d-flex justify-content-center">
+        <h4 class="text-white text-capitalize">current tasks</h4>
+        <div class="col-12 scroll-width-thin scroll-color-colors" id="TaskList">
         </div>
-    </main>
-    <footer></footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    </div>
+</main>
+<footer></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script>
-$(document).ready(function(){retRow();});
-$('#addTask').click(function(){
-    var count_task = $("#TaskList").find('.taskrow').length,
-    tTInput = $('#taskTitleInput').val(),
-    cNInput = $('#clientNameInput').val(),
-    tDInput = $('#taskDescInput').val(),
-    dR = $('#dateRequest').val()?$('#dateRequest').val():getToday(),
-    dD = $('#dateDeadline').val(),
-    status = $('#status').val(),
-    inputArr=[tTInput,cNInput,tDInput,dR,dD,status];
-    //console.log(count_task); fix localhost overwrite rows
-
-
-        if(inputArr[0] == null || inputArr[0] == '' || typeof inputArr[0] == 'undefined'){
-            $('#errorMessage').show().text('title is required');
-        }
-        else if(inputArr[1] == null || inputArr[1] == '' || typeof inputArr[1] == 'undefined'){
-            $('#errorMessage').show().text('client is required');
-        }
-        else if(inputArr[2] == null || inputArr[2] == '' || typeof inputArr[2] == 'undefined'){
-            $('#errorMessage').text('description is required').show();
-        }
-        else if(inputArr[4] == null || inputArr[4] == '' || typeof inputArr[4] == 'undefined'){
-            $('#errorMessage').text('deadline is required').show();
-        }
-        else if(inputArr[5] == null || inputArr[5] == '' || typeof inputArr[5] == 'undefined'){
-            $('#errorMessage').text('status is required').show();
-        }else if(inputArr[3] == null || inputArr[3] == '' || typeof inputArr[3] == 'undefined'){
-            addRow(count_task,tTInput,cNInput,tDInput,dR,dD,status,inputArr);
-        }
-        else{
-            addRow(count_task,tTInput,cNInput,tDInput,dR,dD,status,inputArr);
-        }
-
-
-
-    emptyInput()
-});
-function addRow(cnt,i1,i2,i3,i4,i5,i6,arr){
-    $('#errorMessage').hide();
-
-    $('#TaskList').append(
-        "<div class='row d-flex justify-content-between taskrow' id='taskrow_"+cnt+"' >"+
-       /* "<div class='form-group mr-1'>"+
-        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0 border-0 listnr' id='listNr"+cnt+"' placeholder='Enter Client Title' value='"+cnt+"' disabled>"+
-        "</div>"+*/
-        "<div class='form-group mr-1'>"+
-        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='taskTitleInput"+cnt+"' placeholder='Enter Client Title' value='"+i1+"' required>"+
-        "</div>"+
-        "<div class='form-group mr-1'>"+
-        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='clientNameInput"+cnt+"' placeholder='Enter Client Name' value='"+i2+"' required>"+
-        "</div>"+
-        "<div class='form-group mr-1'>"+
-        "<input type='text' class='form-control form-control-sm rounded-0' id='taskDescInput"+cnt+"' placeholder='Enter Task Description' value='"+i3+"' required>"+
-        "</div>"+
-        "<div class='form-group mr-1 postition-relative'>"+
-        "<input type='text' class='form-control form-control-sm rounded-0' id='dateRequest"+cnt+"' placeholder='Enter date requested' value='"+i4+"' onfocus='(this.type=\"date\")'>"+
-        "</div>"+
-        "<div class='form-group mr-1'>"+
-        "<input type='text' class='form-control form-control-sm rounded-0' id='dateDeadline"+cnt+"' placeholder='Enter date deadline' value='"+i5+"' onfocus='(this.type=\"date\")' required>"+
-        "</div>"+
-        "<div class='form-group mr-1'>"+
-        "<select class='form-control form-control-sm rounded-0' id='status"+cnt+"' required>"+
-        "<option value='1' >Urgent</option>"+
-        "<option value='2' >In Progress</option>"+
-        "<option value='3' >On Hold</option>"+
-        "<option value='4' >Finished</option>"+
-        "</select>"+
-        "</div>"+
-        "</div>"
-    );
-    if(arr==='L'){
-        console.info('Loaded row '+cnt);
-    }else if(arr!=null||arr!=''||arr instanceof Array||arr!='L') {
-        window.localStorage.setItem('row' + cnt, JSON.stringify(arr));
-    }else {
-        console.warn('Expected array got '+typeof arr);
-    }
-    //console.log(window.localStorage.getItem('row'+cnt));
-    $("#status"+cnt+" option[value="+i6+"]").attr('selected','selected');
-}
-function emptyInput() {
-    $('#taskTitleInput').val('');
-    $('#clientNameInput').val('');
-    $('#taskDescInput').val('');
-    $('#dateRequest').val('');
-    $('#dateDeadline').val('');
-    $('#status').val('');
-    $('#errorMessage').val('');
-}
-function getToday() {
-    var tDate = new Date(),
-        d = tDate.getDate(),
-        m = tDate.getMonth(),
-        y = tDate.getFullYear();
-    m += 1;
-    return y + '-' + m + '-' + d;
-}
-function retRow(){
-    for( var i =0; i< localStorage.length; i++){
-        if(localStorage.key(i).substr(0,3) === 'row' ) {
-            var sArr = JSON.parse(localStorage.getItem(localStorage.key(i)));
-            //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
-            //console.log(sArr[0],sArr[1],sArr[2],sArr[3],sArr[4],sArr[5]);
-           addRow(parseInt(localStorage.key(i).substr(3)),sArr[0],sArr[1],sArr[2],sArr[3],sArr[4],sArr[5],'L');
-        }
-    }
-}
-
-</script>
-    <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
+<script src="js/func.js"></script>
+<script src="js/main.js"></script>
+<!--▼▼▼IGNORE THIS▼▼▼-->
+<script id="__bs_script__">//<![CDATA[
+document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));
+//]]></script>
 </body>
 </html>
