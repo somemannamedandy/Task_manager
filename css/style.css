@@ -27,7 +27,7 @@ input,textarea,select,option{
     display:none;
 }
 #TaskList{
-    max-height: 320px;
+    max-height: 500px;
     overflow-y:scroll;
 }
 .scroll-color-colors {

@@ -36,7 +36,7 @@ function addRow(cnt,i1,i2,i3,i4,i5,i6,arr){
     $('#errorMessage').hide();
     /*ADD ROW*/
     $('#TaskList').append(
-        "<div class='row d-flex justify-content-between taskrow' id='taskrow_"+cnt+"' >"+
+        "<div class='row d-flex justify-content-between taskrow border-top pt-1' id='taskrow_"+cnt+"' >"+
         /* "<div class='form-group mr-1'>"+
          "<input type='text' class='form-control form-control-sm text-capitalize rounded-0 border-0 listnr' id='listNr"+cnt+"' placeholder='Enter Client Title' value='"+cnt+"' disabled>"+
          "</div>"+*/
