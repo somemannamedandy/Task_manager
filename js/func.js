@@ -9,6 +9,7 @@ function addTask() {
         status = $('#status').val(),
         inputArr = [tTInput, cNInput, tDInput, dR, dD, status];
     //console.log(count_task); fix localhost overwrite rows
+    /*▼▼▼TODO extract function.▼▼▼*/
     if (inputArr[0] == null || inputArr[0] == '' || typeof inputArr[0] == 'undefined') {
         return $('#errorMessage').show().text('title is required');
     }
@@ -36,27 +37,27 @@ function addRow(cnt, i1, i2, i3, i4, i5, i6, arr) {
     $('#errorMessage').hide();
     /*ADD ROW*/
     $('#TaskList').append(
-        "<div class='row d-flex justify-content-between taskrow border-top pt-1' id='taskrow_" + cnt + "' >" +
+        "<div class='row d-flex align-items-center justify-content-between taskrow border-bottom border-left border-right p-1 task' id='taskrow_" + cnt + "' param='"+cnt+"'>" +
         /* "<div class='form-group mr-1'>"+
          "<input type='text' class='form-control form-control-sm text-capitalize rounded-0 border-0 listnr' id='listNr"+cnt+"' placeholder='Enter Client Title' value='"+cnt+"' disabled>"+
          "</div>"+*/
         "<div class='form-group mr-1'>" +
-        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='taskTitleInput" + cnt + "' placeholder='Enter Client Title' value='" + i1 + "' required>" +
+        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='taskTitleInput" + cnt + "' placeholder='Enter Client Title' value='" + i1 + "' param='"+cnt+"'>" +
         "</div>" +
         "<div class='form-group mr-1'>" +
-        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='clientNameInput" + cnt + "' placeholder='Enter Client Name' value='" + i2 + "' required>" +
+        "<input type='text' class='form-control form-control-sm text-capitalize rounded-0' id='clientNameInput" + cnt + "' placeholder='Enter Client Name' value='" + i2 + "' param='"+cnt+"'>" +
         "</div>" +
         "<div class='form-group mr-1'>" +
-        "<input type='text' class='form-control form-control-sm rounded-0' id='taskDescInput" + cnt + "' placeholder='Enter Task Description' value='" + i3 + "' required>" +
+        "<input type='text' class='form-control form-control-sm rounded-0' id='taskDescInput" + cnt + "' placeholder='Enter Task Description' value='" + i3 + "' param='"+cnt+"'>" +
         "</div>" +
         "<div class='form-group mr-1 postition-relative'>" +
-        "<input type='text' class='form-control form-control-sm rounded-0' id='dateRequest" + cnt + "' placeholder='Enter date requested' value='" + i4 + "' onfocus='(this.type=\"date\")'>" +
+        "<input type='text' class='form-control form-control-sm rounded-0' id='dateRequest" + cnt + "' placeholder='Enter date requested' value='" + i4 + "' onfocus='(this.type=\"date\")'param='"+cnt+"'>" +
         "</div>" +
         "<div class='form-group mr-1'>" +
-        "<input type='text' class='form-control form-control-sm rounded-0' id='dateDeadline" + cnt + "' placeholder='Enter date deadline' value='" + i5 + "' onfocus='(this.type=\"date\")' required>" +
+        "<input type='text' class='form-control form-control-sm rounded-0' id='dateDeadline" + cnt + "' placeholder='Enter date deadline' value='" + i5 + "' onfocus='(this.type=\"date\")' param='"+cnt+"'>" +
         "</div>" +
         "<div class='form-group mr-1'>" +
-        "<select class='form-control form-control-sm rounded-0' id='status" + cnt + "' required>" +
+        "<select class='form-control form-control-sm rounded-0' id='status" + cnt + "' param='"+cnt+"'>" +
         "<option value='1' >Urgent</option>" +
         "<option value='2' >In Progress</option>" +
         "<option value='3' >On Hold</option>" +
@@ -84,13 +85,22 @@ function addRow(cnt, i1, i2, i3, i4, i5, i6, arr) {
         default:
             $('#taskrow_' + cnt).addClass('border-white');
     }
+    /*ON CHANGE -> UPDATE */
+    $("#taskrow")
+
+
+
+
     /*CHECK PARAMS*/
+    /*if param 'L' ->loaded from storage*/
+    /*else if !null&& array add to localstorage*/
+    /*else return error*/
     if (arr === 'L') {
         console.info('Loaded row ' + cnt);
     } else if (arr != null || arr != '' && arr instanceof Array) {
         window.localStorage.setItem('row' + cnt, JSON.stringify(arr));
     } else {
-        console.warn('Expected array got ' + typeof arr);//if arr is not an array
+        console.error('Expected array got ' + typeof arr);//if arr is not an array
     }
     //console.log(window.localStorage.getItem('row'+cnt));
 

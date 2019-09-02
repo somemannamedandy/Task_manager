@@ -44,3 +44,6 @@ input,textarea,select,option{
 .abArea{
     height: 30px!important;
 }
+.task{
+    max-height: 40px;
+}
