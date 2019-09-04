@@ -136,12 +136,10 @@ $('.taskrow').change(function(e){
             console.info('Task '+tKey+' was updated');
         }
     }
-    
     //TODO confirm if updated
 
     //update status colour
     UpdateSColour(tKey);
-   
    });
 }
 function UpdateSColour(cnt){
@@ -165,6 +163,17 @@ function UpdateSColour(cnt){
             $('#taskrow_' + cnt).addClass('border-white');
     }
 }
-/* function updateRow(key,arr){
-    $("#taskrow_"+key).replaceWith();
-} */
+/*TODO BACKUP TASKS*/
+function save(){
+    var tData;
+    for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substr(0, 3) === 'row') {
+            tData += (localStorage.getItem(localStorage.key(i)));
+            //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+            //console.log(sArr[0],sArr[1],sArr[2],sArr[3],sArr[4],sArr[5]);
+           
+        }
+    }
+    console.log(typeof tData+' '+tData);
+}
+//$('#saveTasks').click(function(){ window.location = "data:text/plain, My Data" });
