@@ -37,7 +37,7 @@ function addRow(cnt, i1, i2, i3, i4, i5, i6, arr) {
     $('#errorMessage').hide();
     /*ADD ROW*/
     $('#TaskList').append(
-        "<div class='row d-flex align-items-center justify-content-between taskrow border-bottom border-left border-right p-1' id='taskrow_" + cnt + "' data-key='"+cnt+"'>" +
+        "<div class='row d-flex align-items-center justify-content-between taskrow border-bottom border-left border-right p-1 mx-1' id='taskrow_" + cnt + "' data-key='"+cnt+"'>" +
         /* "<div class='form-group mr-1'>"+
          "<input type='text' class='form-control form-control-sm text-capitalize rounded-0 border-0 listnr' id='listNr"+cnt+"' placeholder='Enter Client Title' value='"+cnt+"' disabled>"+
          "</div>"+*/
@@ -68,7 +68,7 @@ function addRow(cnt, i1, i2, i3, i4, i5, i6, arr) {
     );
     /*SET SELECT VALUE*/
     $("#status" + cnt + " option[value=" + i6 + "]").attr('selected', 'selected');
-    addStatusColour(cnt);
+    UpdateSColour(cnt);
     /*CHECK PARAMS*/
     /*if param 'L' ->loaded from storage*/
     /*else if !null&& array add to localstorage*/
@@ -110,7 +110,7 @@ function rRow() {
             //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
             //console.log(sArr[0],sArr[1],sArr[2],sArr[3],sArr[4],sArr[5]);
             addRow(parseInt(localStorage.key(i).substr(3)), sArr[0], sArr[1], sArr[2], sArr[3], sArr[4], sArr[5], 'L');
-            addStatusColour(sArr[5]);
+            UpdateSColour(sArr[5]);
         }
     }
 }
@@ -119,7 +119,7 @@ function updateTask(){
 $('.taskrow').change(function(e){
     var tKey = $(this).attr('data-key'),
         tArr = new Array;
-        
+
         $('#taskrow_'+tKey+' :input').map(function(){
             var type = $(this).prop("type");
             /* limit values picked up */
@@ -128,25 +128,25 @@ $('.taskrow').change(function(e){
             }
         });
 
-
-        window.localStorage.setItem('row'+tKey,JSON.stringify(tArr));
-        console.info('Task '+tKey+' was updated');
-   /*  for(i=0;i<tArr.length;i++){
-        if(tArr[i]==null|| tArr[i]=='') return $('#errorMessage').text('all field are required').show();
-        if(i==tArr.length){
+    for(i=0;i<tArr.length;i++){
+        if(tArr[i]==null || tArr[i]=='' || tArr[i]==' ') return $('#errorMessage').text('all field are required').show();
+        if(i==tArr.length-1){
             window.localStorage.setItem('row'+tKey,JSON.stringify(tArr));
             $('#errorMessage').hide();
             console.info('Task '+tKey+' was updated');
         }
-    } */
+    }
     
-    //confirm if updated
+    //TODO confirm if updated
 
-    //reload rows
-   //rRow();
+    //update status colour
+    UpdateSColour(tKey);
+   
    });
 }
-function addStatusColour(cnt){
+function UpdateSColour(cnt){
+    /*Remove existing status color*/
+    $('#taskrow_'+cnt).removeClass('border-warning border-primary border-info border-success border-white');
      /*Set status colour*/
      switch (parseInt($("#status" + cnt).val())) {
         case 1:
