@@ -45,5 +45,6 @@ input,textarea,select,option{
     height: 30px!important;
 }
 .taskrow{
-    max-height: 40px;
+    max-height: 45px;
+    border-width: 2px!important;
 }
