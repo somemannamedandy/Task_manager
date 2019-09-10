@@ -77,6 +77,7 @@ function addRow(cnt, i1, i2, i3, i4, i5, i6, arr) {
         console.info('Loaded row ' + cnt);
     } else if (arr != null || arr != '' && arr instanceof Array) {
         window.localStorage.setItem('row' + cnt, JSON.stringify(arr));
+        save();
     } else {
         console.error('Expected array got ' + typeof arr);//if arr is not an array
     }
@@ -140,6 +141,7 @@ $('.taskrow').change(function(e){
 
     //update status colour
     UpdateSColour(tKey);
+    save();
    });
 }
 function UpdateSColour(cnt){
@@ -171,9 +173,9 @@ function save(){
             tData += (localStorage.getItem(localStorage.key(i)));
             //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
             //console.log(sArr[0],sArr[1],sArr[2],sArr[3],sArr[4],sArr[5]);
-           
         }
     }
-    console.log(typeof tData+' '+tData);
+    //MIME type application/json
+    $("#saveTasks").attr('href','data:application/json;charset=utf-8,' + encodeURIComponent(tData));
 }
 //$('#saveTasks').click(function(){ window.location = "data:text/plain, My Data" });
